@@ -1,0 +1,32 @@
+
+  <div class="container"
+    fxLayout="row"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutAlign.gt-md="top"
+    fxLayoutGap="20px" 
+    fxLayoutGap.xs="0">
+ <div fxFlex="100">
+ 
+    
+      <div fxFlex >
+
+ 
+    <mat-grid-list cols="2" rowHeight="200px">
+      <mat-grid-tile *ngFor="let dish of dishes; let i = index" (click)="showLightbox(i)">
+        
+        <img height="200px" src={{dish.image}} alt={{dish.name}}>
+        <mat-grid-tile-footer>
+          <h1>{{dish.name | uppercase}}</h1>
+        </mat-grid-tile-footer>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+    
+  
+</div>
+      <ng-image-fullscreen-view
+        [images]="imageObject"
+        [imageIndex]="currentIndex"
+        [show]="showFlag"
+        (close)="closeEventHandler()"></ng-image-fullscreen-view>
